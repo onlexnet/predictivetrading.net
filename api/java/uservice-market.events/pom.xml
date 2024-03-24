@@ -9,7 +9,7 @@
   <artifactId>uservice-market.events</artifactId>
 
   <properties>
-    <avro.dir>../../grpc/market_rpc</avro.dir>
+    <avro.dir>../../schema/market_rpc</avro.dir>
   </properties>
 
 </project>

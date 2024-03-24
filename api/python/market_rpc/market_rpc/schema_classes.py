@@ -37,7 +37,7 @@ __SCHEMAS = dict((n.fullname.lstrip("."), n) for n in six.itervalues(__NAMES.nam
 class MarketChangedEventClass(DictWrapper):
     # No docs available.
     
-    RECORD_SCHEMA = get_schema_type("onlexnet.market.events.MarketChangedEvent")
+    RECORD_SCHEMA = get_schema_type("onlexnet.pdt.market.events.MarketChangedEvent")
     def __init__(self,
         date: int,
     ):
@@ -60,7 +60,7 @@ class MarketChangedEventClass(DictWrapper):
     
     
 __SCHEMA_TYPES = {
-    'onlexnet.market.events.MarketChangedEvent': MarketChangedEventClass,
+    'onlexnet.pdt.market.events.MarketChangedEvent': MarketChangedEventClass,
     'MarketChangedEvent': MarketChangedEventClass,
 }
 
