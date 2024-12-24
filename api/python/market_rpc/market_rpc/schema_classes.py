@@ -37,16 +37,60 @@ __SCHEMAS = dict((n.fullname.lstrip("."), n) for n in six.itervalues(__NAMES.nam
 class MarketChangedEventClass(DictWrapper):
     # No docs available.
     
-    RECORD_SCHEMA = get_schema_type("onlexnet.market.events.MarketChangedEvent")
+    RECORD_SCHEMA = get_schema_type("onlexnet.pdt.market.events.MarketChangedEvent")
     def __init__(self,
+        ticker: str,
+        whenyyyymmddhhmm: int,
         date: int,
+        open: float,
+        high: float,
+        low: float,
+        close: float,
+        adjClose: float,
+        volume: int,
     ):
         super().__init__()
         
+        self.ticker = ticker
+        self.whenyyyymmddhhmm = whenyyyymmddhhmm
         self.date = date
+        self.open = open
+        self.high = high
+        self.low = low
+        self.close = close
+        self.adjClose = adjClose
+        self.volume = volume
     
     def _restore_defaults(self) -> None:
+        self.ticker = str()
+        self.whenyyyymmddhhmm = int()
         self.date = int()
+        self.open = float()
+        self.high = float()
+        self.low = float()
+        self.close = float()
+        self.adjClose = float()
+        self.volume = int()
+    
+    
+    @property
+    def ticker(self) -> str:
+        # No docs available.
+        return self._inner_dict.get('ticker')  # type: ignore
+    
+    @ticker.setter
+    def ticker(self, value: str) -> None:
+        self._inner_dict['ticker'] = value
+    
+    
+    @property
+    def whenyyyymmddhhmm(self) -> int:
+        # No docs available.
+        return self._inner_dict.get('whenyyyymmddhhmm')  # type: ignore
+    
+    @whenyyyymmddhhmm.setter
+    def whenyyyymmddhhmm(self, value: int) -> None:
+        self._inner_dict['whenyyyymmddhhmm'] = value
     
     
     @property
@@ -59,8 +103,68 @@ class MarketChangedEventClass(DictWrapper):
         self._inner_dict['date'] = value
     
     
+    @property
+    def open(self) -> float:
+        # No docs available.
+        return self._inner_dict.get('open')  # type: ignore
+    
+    @open.setter
+    def open(self, value: float) -> None:
+        self._inner_dict['open'] = value
+    
+    
+    @property
+    def high(self) -> float:
+        # No docs available.
+        return self._inner_dict.get('high')  # type: ignore
+    
+    @high.setter
+    def high(self, value: float) -> None:
+        self._inner_dict['high'] = value
+    
+    
+    @property
+    def low(self) -> float:
+        # No docs available.
+        return self._inner_dict.get('low')  # type: ignore
+    
+    @low.setter
+    def low(self, value: float) -> None:
+        self._inner_dict['low'] = value
+    
+    
+    @property
+    def close(self) -> float:
+        # No docs available.
+        return self._inner_dict.get('close')  # type: ignore
+    
+    @close.setter
+    def close(self, value: float) -> None:
+        self._inner_dict['close'] = value
+    
+    
+    @property
+    def adjClose(self) -> float:
+        # No docs available.
+        return self._inner_dict.get('adjClose')  # type: ignore
+    
+    @adjClose.setter
+    def adjClose(self, value: float) -> None:
+        self._inner_dict['adjClose'] = value
+    
+    
+    @property
+    def volume(self) -> int:
+        # No docs available.
+        return self._inner_dict.get('volume')  # type: ignore
+    
+    @volume.setter
+    def volume(self, value: int) -> None:
+        self._inner_dict['volume'] = value
+    
+    
 __SCHEMA_TYPES = {
-    'onlexnet.market.events.MarketChangedEvent': MarketChangedEventClass,
+    'onlexnet.pdt.market.events.MarketChangedEvent': MarketChangedEventClass,
     'MarketChangedEvent': MarketChangedEventClass,
 }
 

@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "onlexnet.agent.rpc";
+
+// Buy at any price given amount on assets
+message BuyOrder {
+  // who order
+  string clientId = 1;
+  // What order
+  string ticker = 2;
+  // order option
+  oneof option {
+    BuyMax buyMax = 3;
+    BuyOne buyOne = 4;
+  }
+}
+
+// buy as much assets as you can based on available budget
+message BuyMax {
+}
+
+// buy only one asset
+message BuyOne {
+}
+
+// Sell at any price given amount on assets
+message SellOrder {
+  // who order
+  string clientId = 1;
+  // What order
+  string ticker = 2;
+  // how many items
+  double amount = 3;
+}
+
+message OrderBook {
+  repeated BuyOrder orders = 1;
+}
+
+message Finished {
+
+}
+
+message State {
+  OrderBook orderBook = 1;
+  Finished finished = 2;
+  double budget = 3;
+}
+
+
+service Agent {
+    rpc buy(BuyOrder) returns (State) {}
+    rpc sell(SellOrder) returns (State) {}
+}

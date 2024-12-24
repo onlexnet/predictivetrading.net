@@ -1,7 +1,7 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>onlexnet.ptn</groupId>
+    <groupId>onlexnet.pdt</groupId>
     <artifactId>client-events-parent</artifactId>
     <version>${revision}</version>
     <relativePath>../.parent.events/pom.xml</relativePath>
@@ -9,7 +9,7 @@
   <artifactId>uservice-market.events</artifactId>
 
   <properties>
-    <avro.dir>../../grpc/market_rpc</avro.dir>
+    <avro.dir>../../schema/market_rpc</avro.dir>
   </properties>
 
 </project>

@@ -1,0 +1,13 @@
+{
+    "terminal.integrated.profiles.linux": {
+        "helm bash": {
+            "path": "bash",
+            "icon": "terminal-bash",
+            "args": [
+                "--rcfile",
+                "./init.sh",
+            ]
+        },
+    },
+    "terminal.integrated.defaultProfile.linux": "helm bash"
+}

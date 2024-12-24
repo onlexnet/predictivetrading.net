@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+message TimeClient {
+}
+
+// Confirmation of approved client registration for time.
+message ClientTag {
+}
+
+// Each client, interested in 
+service TimeScheduler {
+    rpc tick(TimeClient) returns (ClientTag) { }
+}

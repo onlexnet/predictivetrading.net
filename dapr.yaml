@@ -1,19 +1,48 @@
 version: 1
 apps:
-  # - appID: app1
-  #   appDirPath: ./uservice-app1
-  #   appProtocol: grpc
-  #   appPort: 50051
-  #   command: [".venv/bin/python", "app.py"]
+  - appID: scheduler
+    appDirPath: ./uservice-scheduler
+    appProtocol: grpc
+    appPort: 50054
+    resourcesPath: ../.components
+    command: [".venv/bin/python", "app.py"]
+    env:
+      NUMBER_OF_TIME_CLIENTS: 1
+    metricsPort: 19054
+  - appID: agent
+    appDirPath: ./uservice-agent
+    appProtocol: grpc
+    appPort: 50051
+    metricsPort: 19051
+    command: ["mvn", "spring-boot:run", "-ntp"]
   - appID: market
     appDirPath: ./uservice-market
     appProtocol: grpc
     appPort: 50052
+    resourcesPath: ../.components
     command: [".venv/bin/python", "app.py"]
-  - appID: app2
-    appDirPath: ./uservice-app2
+    metricsPort: 19052
+  - appID: signals-1
+    appDirPath: ./uservice-signals-1
     appProtocol: grpc
-    appPort: 50053
-    env:
-      EXAMPLE1: localhost
-    command: ["mvn", "spring-boot:run", "-ntp", "-DskipTests"]
+    appPort: 50057
+    resourcesPath: ../.components
+    command: [".venv/bin/python", "app.py"]
+    metricsPort: 19057
+  - appID: strat-01
+    appDirPath: ./uservice-strat-01
+    appProtocol: grpc
+    appPort: 50058
+    resourcesPath: ../.components
+    command: [".venv/bin/python", "app.py"]
+    metricsPort: 19058
+  # - appID: agent
+  #   appDirPath: ./uservice-agent
+  #   appProtocol: grpc
+  #   appPort: 50055
+  #   command: [".venv/bin/python", "app.py"]
+  # - appID: agent
+  #   appDirPath: ./uservice-signals-1
+  #   appProtocol: grpc
+  #   appPort: 50056
+  #   command: [".venv/bin/python", "app.py"]

@@ -1,0 +1,15 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>onlexnet.pdt</groupId>
+    <artifactId>client-rpc-parent</artifactId>
+    <version>${revision}</version>
+    <relativePath>../.parent.rpc/pom.xml</relativePath>
+  </parent>
+  <artifactId>uservice-agent.rpc</artifactId>
+
+  <properties>
+    <proto.dir>../../schema/agent_rpc</proto.dir>
+  </properties>
+
+</project>

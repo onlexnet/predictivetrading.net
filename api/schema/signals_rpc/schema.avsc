@@ -1,0 +1,37 @@
+[
+  {
+    "namespace": "onlexnet.pdt.signals.events",
+    "type": "record",
+    "name": "Order",
+    "fields": [
+      {
+        "name": "kind",
+        "type": {
+          "name": "OrderKind",
+          "type": "enum",
+          "symbols": [
+            "BUY",
+            "SELL"
+          ]
+        }
+      },
+      {
+        "name": "wnen",
+        "type": {
+          "name": "datetime6",
+          "type": "record",
+          "fields": [
+            {
+              "name": "yyyymmdd",
+              "type": "int"
+            },
+            {
+              "name": "hhmm",
+              "type": "int"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

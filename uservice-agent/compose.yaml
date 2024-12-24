@@ -1,0 +1,22 @@
+services:
+  
+  daprd:
+    image: "daprio/daprd:1.13.2-mariner"
+    restart: always
+    command: [
+      # https://v1-7.docs.dapr.io/reference/arguments-annotations-overview/
+      "./daprd",
+      "--app-id", "app",
+      "--app-port", "${APP_PORT}",
+      "--app-protocol", "grpc",
+      "--dapr-grpc-port", "${DAPR_GRPC_PORT}",
+      # "--enable-app-health-check", "true",
+      # "--app-health-probe-interval", "1",
+      "--placement-host-address", "placement:50006", # Dapr's placement service can be reach via the docker DNS entry
+      "--components-path", "./components"
+     ]
+    ports:
+      - ${DAPR_GRPC_PORT}:${DAPR_GRPC_PORT}
+    volumes:
+      - "../.components/:/components" # Mount our components folder for the runtime to use. The mounted location must match the --resources-path argument.
+    network_mode: host

@@ -10,7 +10,7 @@ class SpecificDatumReader(DatumReader):
     SCHEMA_TYPES = {
         "MarketChangedEvent": MarketChangedEventClass,
         ".MarketChangedEvent": MarketChangedEventClass,
-        "onlexnet.market.events.MarketChangedEvent": MarketChangedEventClass,
+        "onlexnet.pdt.market.events.MarketChangedEvent": MarketChangedEventClass,
     }
     
     

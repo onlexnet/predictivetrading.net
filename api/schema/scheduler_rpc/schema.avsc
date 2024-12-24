@@ -1,0 +1,47 @@
+[
+  {
+    "namespace": "onlexnet.ptn.scheduler.events",
+    "type": "record",
+    "name": "NewTime",
+    "doc": "Informs listening services about change in time to allow them start new activities",
+    "fields": [
+      {
+        "name": "correlationId",
+        "type": "string",
+        "doc": "bbbbbbbbbbbbbb"
+      },
+      {
+        "name": "yyyymmdd",
+        "type": "int"
+      },
+      {
+        "name": "hhmm",
+        "type": "int"
+      }
+    ]
+  },
+  {
+    "namespace": "onlexnet.ptn.scheduler.events",
+    "type": "record",
+    "name": "NewTimeApplied",
+    "doc": "Only for testing purposes: confirm readiness on one of listener, and may inform about additional listeners (when additionalClients > 0)",
+    "fields": [
+      {
+        "name": "correlationId",
+        "type": "string"
+      },
+      {
+        "name": "additionalClients",
+        "type": "int",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "namespace": "onlexnet.ptn.scheduler.events",
+    "type": "record",
+    "description": "test description",
+    "name": "BalanceReportRequestedEvent",
+    "fields": []
+  }
+]

@@ -1,9 +1,19 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>onlexnet.ptn</groupId>
+  <groupId>onlexnet.pdt</groupId>
   <artifactId>client-parent</artifactId>
   <version>${revision}</version>
   <packaging>pom</packaging>
+
+  <properties>
+
+    <!--
+      Disable warning
+      [WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent
+    !-->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+  </properties>
 
   <build>
     <plugins>
@@ -42,8 +52,34 @@
         </executions>
       </plugin>
 
+      <!-- Required to discover and run junit tests -->
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.2.5</version>
+      </plugin>
 
     </plugins>
   </build>
+
+  <dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <dependencyManagement>
+      <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>3.2.5</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+      </dependencies>
+  </dependencyManagement>
 
 </project>
